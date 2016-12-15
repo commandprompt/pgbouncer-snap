@@ -1,6 +1,6 @@
 # pgbouncer-snap
 
-This is a collection of snapcraft recipes for PgBouncer that can be used to create PostgreSQL snap packages.
+This is a collection of snapcraft recipes for PgBouncer that can be used to create PgBouncer snap packages.
 
 The packages are maintained as a service to the community by Command Prompt, Inc. A PostgreSQL and Linux Professional services company.
 You can find Command Prompt on the web at https://commandprompt.com
