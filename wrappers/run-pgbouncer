@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+RUN_DIR="$SNAP_USER_DATA/var/run"
+LOG_DIR="$SNAP_USER_DATA/var/log"
+CNF_DIR="$SNAP_USER_DATA/etc"
+
+LOGFILE="$LOG_DIR/pgbouncer.log"
+USRFILE="$CNF_DIR/userlist.txt"
+
+
+[ -e "$RUN_DIR" ] || mkdir -p "$RUN_DIR"
+[ -e "$LOG_DIR" ] || mkdir -p "$LOG_DIR"
+[ -e "$CNF_DIR" ] || mkdir -p "$CNF_DIR"
+
+[ -e "$LOGFILE" ] || touch "$LOGFILE"
+[ -e "$USRFILE" ] || touch "$USRFILE"
+
+[ -e "$CNF_DIR/pgbouncer.ini" ] || sed -e "s:{SNAP_USER_DATA}:$SNAP_USER_DATA:g" $SNAP/etc/pgbouncer.ini > $CNF_DIR/pgbouncer.ini
+
+
+$SNAP/usr/bin/pgbouncer -d $CNF_DIR/pgbouncer.ini
+
+exit 0
