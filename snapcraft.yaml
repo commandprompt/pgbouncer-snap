@@ -1,0 +1,45 @@
+name: pgbouncer
+version: 1.7.2
+summary: Lightweight connection pooler for PostgreSQL
+description: Lightweight connection pooler for PostgreSQL
+confinement: strict #or devmode
+grade: stable
+
+apps:
+  pgbouncer:
+      command: usr/bin/run-pgbouncer
+      plugs:
+        - network
+        - network-bind
+  orig:
+      command: usr/bin/pgbouncer
+      plugs:
+        - network
+        - network-bind
+
+parts:
+  pgbouncer:
+    plugin: autotools
+    source: https://pgbouncer.github.io/downloads/files/1.7.2/pgbouncer-1.7.2.tar.gz
+    configflags:
+        - --prefix=/usr
+        - --localstatedir=/etc
+        - --sysconfdir=/var
+        - --with-libevent=libevent-prefix
+        - --with-cares=/usr/lib
+        - --with-pam
+    build-packages:
+        - libevent-dev
+        - libc-ares-dev
+        - libssl-dev
+    stage-packages:
+        - libevent-2.0-5
+        - libc-ares2
+  wrappers:
+     plugin: make
+     source: .
+  configs:
+    source: configs/
+    plugin: dump
+    organize:
+      pgbouncer.ini: etc/pgbouncer.ini
