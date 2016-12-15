@@ -28,7 +28,7 @@ To install from Ubuntu Store simply run:
 
 ## pgbouncer User
 
-PgBouncer must be run by an unprivileged user, e.g. pgbouncer.
+PgBouncer must be run as an unprivileged user, e.g. pgbouncer.
 
 This user has to be created manually.
 
