@@ -1,4 +1,4 @@
-# pgbouncer-snap
+# postgresql-pgbouncer-snap
 
 This is a collection of snapcraft recipes for PgBouncer that can be used to create PgBouncer snap packages.
 
@@ -10,7 +10,7 @@ You can find Command Prompt on the web at https://commandprompt.com
 If you don't want to build the binaries but instead just want to install the
 packages, run this command:
 
-`$ sudo snap install pgbouncer`
+`$ sudo snap install postgresql-pgbouncer`
 
 ## Build
 
@@ -20,11 +20,11 @@ Snapcraft recipes for each PgBouncer version are found in separate branches. To 
 
 To install a local build of a snap package run this command:
 
-`$ sudo snap install --force-dangerous pgbouncer_1.7.2_amd64.snap`
+`$ sudo snap install --force-dangerous postgresql-pgbouncer_1.7.2_amd64.snap`
 
 To install from Ubuntu Store simply run:
 
-`$ sudo snap install pgbouncer`
+`$ sudo snap install postgresql-pgbouncer`
 
 ## pgbouncer User
 
@@ -40,7 +40,7 @@ Note that you may need to run PgBouncer command directly or via a wrapper. By co
 
 To get a list of all commands that are available in a package simply run:
 
-`$ ls /snap/pgbouncer/current/*.wrapper
+`$ ls /snap/postgresql-pgbouncer/current/*.wrapper
 
-Where command-pgbouncer.wrapper is simply pgbouncer and command-orig.wrapper is pgbouncer.orig.
+Where command-pgbouncer.wrapper is pgbouncer and command-orig.wrapper is pgbouncer.orig.
 
