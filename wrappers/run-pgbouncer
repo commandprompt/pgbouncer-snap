@@ -20,6 +20,6 @@ USRFILE="$CNF_DIR/userlist.txt"
 [ -e "$CNF_DIR/pgbouncer.ini" ] || sed -e "s:{SNAP_USER_DATA}:$SNAP_USER_DATA:g" $SNAP/etc/pgbouncer.ini > $CNF_DIR/pgbouncer.ini
 
 
-$SNAP/usr/bin/pgbouncer -d $CNF_DIR/pgbouncer.ini
+$SNAP/usr/bin/pgbouncer -d $CNF_DIR/pgbouncer.ini "$@"
 
 exit 0

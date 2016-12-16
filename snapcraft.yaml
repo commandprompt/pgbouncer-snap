@@ -1,4 +1,4 @@
-name: pgbouncer
+name: postgresql-pgbouncer
 version: 1.7.2
 summary: Lightweight connection pooler for PostgreSQL
 description: Lightweight connection pooler for PostgreSQL
@@ -6,12 +6,12 @@ confinement: strict #or devmode
 grade: stable
 
 apps:
-  pgbouncer:
+  run-pgbouncer:
       command: usr/bin/run-pgbouncer
       plugs:
         - network
         - network-bind
-  orig:
+  pgbouncer:
       command: usr/bin/pgbouncer
       plugs:
         - network
